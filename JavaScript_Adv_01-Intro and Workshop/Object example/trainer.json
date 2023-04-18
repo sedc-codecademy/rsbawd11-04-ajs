@@ -1,0 +1,11 @@
+{
+  "trainer": {
+    "name": "Jelena Miodragovic",
+    "age": 30,
+    "courses": ["JavaScript", "Python", "HTML/CSS"],
+    "contact": {
+      "email": "jelena-miodragovic@example.com",
+      "phone": "123-456-7890"
+    }
+  }
+}
