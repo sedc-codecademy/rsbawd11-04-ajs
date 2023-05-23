@@ -1,0 +1,102 @@
+#myDiv {
+display: flex;
+flex-wrap: wrap;
+}
+#myDiv img {
+    max-width:200px ;
+    height: auto;
+    
+}
+#myDiv > div {
+    width: 25%;
+    border: 2px solid coral;
+    margin: 25px;
+    padding: 5px;
+    border-radius: 6px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    transition: transform ease-in-out 300ms;
+}
+#myDiv > div:hover {
+transform: scale(1.05);
+}
+
+
+let title = document.getElementById('title');
+let image = document.getElementById('image');
+let description = document.getElementById('description');
+let url = "https://fakestoreapi.com/products";
+let container = document.getElementById('myDiv');
+async function fetchData() {
+    try {
+        let response = await fetch(url);
+        let data = await response.json();
+        //console.log("response", response);
+        //console.log("object", data);
+        
+        for (let i = 0; i < data.length; i++){
+            console.log(data[i].title);
+            console.log(data[i].description);
+            console.log(data[i].image);
+            let card = document.createElement("div");
+            let title = document.createElement("h2");
+            let description = document.createElement("p");
+            let image = document.createElement("img");
+                title.innerText = data[i].title;
+                description.innerText = data[i].description;
+                  image.src = data[i].image;
+                card.appendChild(title);
+                card.appendChild(description);
+                card.appendChild(image);
+                container.appendChild(card);
+          
+            
+        }
+        return data;
+    } catch (error) {
+        console.log(error)
+    }
+};
+       
+
+
+
+       // function showMultiple(a, b, ...nums,) {
+//     console.log(sum(...nums, a, b));
+// }
+// showMultiple(1, 3, 3, 4, 5, 6, 7, 8, 10, 50, 500, -4);
+// function sum(...num) {
+//     let sum = 0;
+//     num.forEach((e) => {
+//         sum += e;
+//     });
+//     return sum;
+// }
+function optional(a = 1, b = 1, c = 5, d = 7) {
+    let sum = a + b + c + d;
+    console.log(sum);
+}
+optional();
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="FakeStore.css">
+</head>
+<body>
+    <h2>Fake Store App</h2>
+    
+    <div id="myDiv">
+       
+    </div>
+    <script src="jsFakeStore.js"></script>
+</body>
+</html>

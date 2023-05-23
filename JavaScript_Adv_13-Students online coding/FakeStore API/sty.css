@@ -1,0 +1,39 @@
+body {
+
+    background-image: linear-gradient(rgb(112, 86, 206), rgb(72, 184, 248), rgb(33, 3, 90));
+
+}
+
+h1 {
+    text-align: center
+}
+
+#myDiv {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#myDiv img {
+    max-width: 180px;
+    height: auto;
+}
+
+
+#myDiv>div {
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    border: 2px solid rgb(39, 1, 88);
+    margin: 25px;
+    padding: 5px;
+    border-radius: 6px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    transition: transform ease-in-out 300ms;
+}
+
+#myDiv>div:hover {
+    transform: scale(1.05);
+}
